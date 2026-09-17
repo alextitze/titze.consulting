@@ -59,16 +59,6 @@ img { max-width: 100%; }
 .brand__word .dot { color: var(--color-oxide-red); font-weight: 600; }
 
 .header__right { display: flex; align-items: center; gap: var(--space-20); }
-.nav { display: flex; gap: var(--space-26); }
-.nav a {
-  font-family: var(--font-mono);
-  font-size: var(--fs-label);
-  letter-spacing: 0.12em;
-  color: var(--color-slate);
-  transition: color 120ms ease-out;
-}
-.nav a:hover { color: var(--color-oxide-red); }
-.nav a.is-accent { color: var(--color-oxide-red); }
 
 .langswitch {
   display: flex;

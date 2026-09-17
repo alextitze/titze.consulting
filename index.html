@@ -8,8 +8,12 @@
   <link rel="alternate" hreflang="de" href="https://titze.consulting/de/">
   <link rel="alternate" hreflang="en" href="https://titze.consulting/en/">
   <link rel="alternate" hreflang="x-default" href="https://titze.consulting/de/">
+  <!-- Ohne JS: Fallback auf Deutsch (Hauptmarkt). Mit JS: Sprache des Browsers. -->
   <meta http-equiv="refresh" content="0; url=/de/">
-  <script>location.replace('/de/');</script>
+  <script>
+    var lang = (navigator.languages && navigator.languages[0]) || navigator.language || 'de';
+    location.replace(lang.toLowerCase().indexOf('en') === 0 ? '/en/' : '/de/');
+  </script>
 </head>
 <body>
   <p><a href="/de/">Weiter zu titze.consulting</a> · <a href="/en/">English version</a></p>
