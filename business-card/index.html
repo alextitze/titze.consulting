@@ -67,16 +67,39 @@
     .back__side svg { display: block; }
     .qr { width: 22mm; height: 22mm; display: block; }
 
+    /* Druckdateien-Bereich */
+    .files {
+      width: 100%; max-width: 620px; box-sizing: border-box;
+      margin-top: 8px; padding: 22px 24px;
+      background: var(--color-paper); border: 1px solid var(--color-edge-strong); border-radius: 10px;
+    }
+    .files__title { margin: 0 0 6px; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; color: var(--color-anthracite); }
+    .files__intro { margin: 0 0 18px; font-family: var(--font-mono); font-size: 11px; line-height: 1.7; color: var(--color-steel); }
+    .files__intro a { color: var(--color-oxide-red); }
+    .files__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    @media (max-width: 520px) { .files__grid { grid-template-columns: 1fr; } }
+    .files__badge {
+      display: inline-block; margin-bottom: 10px; padding: 3px 8px; border-radius: 4px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .08em; text-transform: uppercase;
+    }
+    .files__badge--rgb { background: var(--color-oxide-red); color: var(--color-paper); }
+    .files__badge--cmyk { background: var(--color-limebeige); color: var(--color-slate); border: 1px solid var(--color-edge-strong); }
+    .files__list { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+    .files__list a { font-family: var(--font-mono); font-size: 12.5px; color: var(--color-anthracite); text-decoration: none; border-bottom: 1px solid var(--color-edge); padding-bottom: 5px; display: block; }
+    .files__list a:hover { color: var(--color-oxide-red); }
+    .files__list .sub { color: var(--color-steel); }
+    .files__note { margin: 0; font-family: var(--font-mono); font-size: 10.5px; line-height: 1.6; color: var(--color-steel); }
+
     @media print {
       body { background: #fff; padding: 0; gap: 0; display: block; }
-      .hint, .side__label { display: none; }
+      .hint, .side__label, .files { display: none; }
       .card { box-shadow: none; page-break-after: always; }
       @page { size: 85mm 55mm; margin: 0; }
     }
   </style>
 </head>
 <body>
-  <p class="hint">Druckvorschau 85 × 55 mm. Für die Druckerei ggf. 3 mm Beschnitt (Bleed) ergänzen und die Schrift der Wortmarke in Pfade wandeln. QR enthält die vCard direkt (marco@titze.consulting, +49 151 11281477).</p>
+  <p class="hint">Druckvorschau 85 × 55 mm. Die druckreifen Dateien (mit Beschnitt, Schrift in Pfaden) liegen unten und in <code>print/</code>. QR enthält die vCard direkt (marco@titze.consulting, +49 151 11281477).</p>
 
   <div class="side">
     <div class="card card--front">
@@ -117,5 +140,30 @@
     </div>
     <span class="side__label">RÜCKSEITE</span>
   </div>
+
+  <section class="files">
+    <h2 class="files__title">Druckdateien</h2>
+    <p class="files__intro">Erzeugt aus dieser Vorlage — 88 × 58 mm inkl. 1,5 mm Beschnitt, Endformat 85 × 55 mm, Schrift in Pfade gewandelt, QR vektoriell. Details &amp; Neu-Erzeugung: <a href="print/README.md">print/README.md</a></p>
+    <div class="files__grid">
+      <div class="files__col">
+        <span class="files__badge files__badge--rgb">RGB · Online-Druckdienst</span>
+        <ul class="files__list">
+          <li><a href="print/rgb/visitenkarte-front.pdf">visitenkarte-front.pdf <span class="sub">— Vorderseite ↓</span></a></li>
+          <li><a href="print/rgb/visitenkarte-back.pdf">visitenkarte-back.pdf <span class="sub">— Rückseite ↓</span></a></li>
+          <li><a href="print/rgb/visitenkarte-vorder-und-rueckseite.pdf">…vorder-und-rueckseite.pdf <span class="sub">— 2 Seiten ↓</span></a></li>
+        </ul>
+        <p class="files__note">Beim RGB-Druckdienst: doppelseitig wählen, Vorder- und Rückseite getrennt hochladen. Material z. B. 350 g/m², matt.</p>
+      </div>
+      <div class="files__col">
+        <span class="files__badge files__badge--cmyk">CMYK · klassische Druckerei</span>
+        <ul class="files__list">
+          <li><a href="print/cmyk/visitenkarte-front.pdf">visitenkarte-front.pdf <span class="sub">— Vorderseite ↓</span></a></li>
+          <li><a href="print/cmyk/visitenkarte-back.pdf">visitenkarte-back.pdf <span class="sub">— Rückseite ↓</span></a></li>
+          <li><a href="print/cmyk/visitenkarte-vorder-und-rueckseite.pdf">…vorder-und-rueckseite.pdf <span class="sub">— 2 Seiten ↓</span></a></li>
+        </ul>
+        <p class="files__note">DeviceCMYK: Anthrazit als Rich Black C60/40/40/100, QR K-only. Farbprofil mit der Druckerei abstimmen. Nicht beim RGB-Druckdienst verwenden.</p>
+      </div>
+    </div>
+  </section>
 </body>
 </html>

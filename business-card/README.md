@@ -1,24 +1,29 @@
 # Visitenkarte — Titze.Consulting
 
-`index.html` ist die **Design-Quelle** (85 × 55 mm, Vorder- und Rückseite, Vektor, nutzt `../styles/tokens.css`). `qr-vcard.svg` ist der QR mit der vCard direkt (Inhalt = `/marco-titze.vcf`).
+`index.html` ist die **Design-Quelle** (85 × 55 mm, Vorder- und Rückseite, Vektor,
+nutzt `../styles/tokens.css`). `qr-vcard.svg` ist der QR mit der vCard direkt
+(Quelle = `../marco-titze.vcf`: Name, Firma, Tel, E-Mail, Website).
 
-Die Druckdatei wird aus dieser Quelle erzeugt — die HTML-Datei selbst geht **nicht** an die Druckerei.
+## Druckreife Dateien → `print/`
 
-## Was die Druckerei braucht
+Die fertigen Druckdateien liegen in **`print/`** (aus der Design-Quelle erzeugt):
 
-- **Format:** PDF/X-1a (klassisch) oder PDF/X-4 (mit Transparenz/ICC).
-- **Farbe:** CMYK, nicht RGB. Markenfarben definiert festlegen, damit sie nicht kippen:
-  - Oxidrot `#A8261F` → als definierter CMYK-Wert **oder** Pantone (mit der Druckerei abstimmen).
-  - Anthrazit `#14181A` → „Rich Black" (z. B. C60 M40 Y40 K100), nicht reines K100.
-- **Beschnitt:** 3 mm rundum (85 × 55 mm → 91 × 61 mm) + Schnittmarken. Inhalt ≥ 3–5 mm von der Kante.
-- **Schrift:** in Pfade wandeln oder einbetten (Archivo/IBM Plex Mono).
-- **QR:** rein schwarz, vektoriell (ist er) → sicher scanbar.
-- **Seiten:** Vorderseite + Rückseite als zwei Seiten.
-- **Material (Empfehlung Handover):** 350 g/m², matt laminiert.
+- **`print/rgb/`** — für einen Online-Druckdienst mit RGB-Workflow (der Dienst konvertiert selbst)
+- **`print/cmyk/`** — für eine klassische Druckerei (DeviceCMYK)
 
-## Weg zur Druckdatei
+Alle: 88 × 58 mm inkl. 1,5 mm Beschnitt, Endformat 85 × 55 mm (TrimBox), Schrift in
+Pfade gewandelt, QR vektoriell (K-only). Upload-Anleitung & Neu-Erzeugung: `print/README.md`.
 
-1. **Empfohlen:** Template der konkreten Druckerei anfordern (Maße/Bleed/Farbprofil/Format) und die Karte in Scribus (kostenlos) / Affinity Publisher / InDesign anhand der Tokens nachbauen, als PDF/X-1a mit Bleed exportieren.
-2. **Automatisiert (mit Farb-Vorbehalt):** HTML → PDF (Chromium/WeasyPrint) → Ghostscript + ICC → PDF/X-1a/CMYK. Das Rot vor dem Druck per Proof prüfen.
+> Der Beschnitt beträgt hier **1,5 mm** je Seite (88 × 58 mm). Eine klassische Druckerei
+> verlangt oft **3 mm** — dann bei ihr das Template/Maß anfragen und in `print/src/build_cards.py`
+> den Beschnitt anpassen (aktuell auf 1,5 mm getrimmt, mit 3 mm Übermalung gerendert).
 
-Browser „Drucken → Als PDF" liefert nur einen **RGB-Proof ohne Bleed** — für die digitale Weitergabe okay, nicht druckreif.
+## Farb-Hinweise für eine klassische Druckerei (CMYK)
+
+Ohne Proof sind die CMYK-Werte in `print/cmyk/` Näherungen. Mit der Druckerei abstimmen:
+
+- **Oxidrot** `#A8261F` → definierter CMYK-Wert (aktuell ~C8 M89 Y89 K20) **oder** Pantone.
+- **Anthrazit** `#14181A` → **Rich Black C60 M40 Y40 K100** (bereits so gesetzt), nicht reines K100.
+- **Ziel-Farbprofil** der Druckerei erfragen (z. B. ISO Coated v2 / FOGRA39) und ggf. neu konvertieren.
+- **Format:** ggf. PDF/X-1a/X-4 verlangt → aus den CMYK-PDFs mit der Druckerei-Vorgabe erzeugen.
+- **Material (Empfehlung):** 350 g/m², matt laminiert.
