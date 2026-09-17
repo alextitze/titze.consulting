@@ -51,4 +51,4 @@ Inhaltsbreite: max. 1000 px (Onepager), 640 px (Rechtstexte).
 
 ## Visitenkarte
 
-`business-card/index.html` — 85 × 55 mm, Vorderseite Anthrazit (Lockup + Claim), Rückseite Papier (Name, `SENIOR CONSULTANT`, Kontakt, QR ≥ 22 mm). QR enthält die vCard direkt (Quelle: `/marco-titze.vcf` im Repo-Root). Kontakt-E-Mail auf der Karte ist `marco@titze.consulting` (die Website nutzt `mail@titze.consulting`). Bewusst **keine** Anschrift auf der Karte. Für den Druck 3 mm Beschnitt ergänzen, 350 g/m² matt laminiert.
+`business-card/index.html` — 85 × 55 mm, Vorderseite Anthrazit (Lockup + Claim), Rückseite Papier (Name, `SENIOR CONSULTANT`, Kontakt, QR ≥ 22 mm). QR enthält die vCard direkt (Quelle: `/marco-titze.vcf` im Repo-Root). Kontakt-E-Mail durchgängig `marco@titze.consulting` (Website, Karte, vCard). Bewusst **keine** Anschrift auf der Karte. Für den Druck 3 mm Beschnitt ergänzen, 350 g/m² matt laminiert.
