@@ -201,8 +201,9 @@ img { max-width: 100%; }
 .footer__links a:hover { color: var(--color-paper); }
 
 /* ---------- Rechtstexte (Impressum / Datenschutz) ---------- */
-.legal { padding: var(--space-72) var(--band-pad-x); }
-.legal__inner { max-width: var(--prose-max); margin: 0 auto; }
+.legal { padding-block: var(--space-72); }
+.legal__inner { max-width: var(--content-max); margin: 0 auto; padding-inline: var(--band-pad-x); }
+.legal__inner > * { max-width: var(--prose-max); }
 .legal h1 {
   font-size: var(--fs-h2);
   font-weight: 600;
@@ -237,5 +238,5 @@ img { max-width: 100%; }
   .header__inner { flex-wrap: wrap; gap: var(--space-14); }
   .hero__inner { padding: var(--space-48) 24px; }
   .hero__headline { font-size: 34px; }
-  .legal { padding: var(--space-48) 24px; }
+  .legal { padding-block: var(--space-48); }
 }
