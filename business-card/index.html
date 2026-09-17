@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Visitenkarte — Titze.Consulting</title>
+  <link rel="stylesheet" href="../styles/fonts.css">
+  <link rel="stylesheet" href="../styles/tokens.css">
+  <style>
+    /* Bildschirm-Vorschau */
+    body {
+      margin: 0; background: var(--color-limebeige);
+      font-family: var(--font-sans); color: var(--color-slate);
+      display: flex; flex-direction: column; align-items: center; gap: 28px;
+      padding: 40px 16px;
+    }
+    .hint {
+      max-width: 520px; font-family: var(--font-mono); font-size: 11px;
+      line-height: 1.7; letter-spacing: .04em; color: var(--color-steel); text-align: center;
+    }
+    .side { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+    .side__label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .12em; color: var(--color-steel); }
+
+    .card {
+      width: 85mm; height: 55mm; box-sizing: border-box; overflow: hidden;
+      box-shadow: 0 18px 40px -18px rgba(20,24,26,.45);
+    }
+
+    /* Vorderseite: Marke oben, Wortbild + Claim unten */
+    .card--front {
+      background: var(--color-anthracite);
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 9mm 8mm;
+    }
+    .card--front svg { display: block; }
+    .front__word { display: flex; align-items: baseline; font-size: 26px; letter-spacing: -0.028em; color: var(--color-paper); }
+    .front__word .name { font-weight: 600; }
+    .front__word .dot { color: var(--color-oxide-red-light); font-weight: 600; }
+    .front__word .rest { font-weight: 400; }
+    .claim {
+      display: block; margin-top: 8px;
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .13em; color: var(--color-fog);
+    }
+
+    /* Rückseite: links Papier (Text), rechts Kalkbeige-Feld (Marke + QR) */
+    .card--back {
+      background: var(--color-paper); border: 1px solid var(--color-edge-strong);
+      display: flex;
+    }
+    .back__main {
+      flex: 1; min-width: 0;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 9mm 0 9mm 8mm;
+    }
+    .back__name { font-size: 18px; font-weight: 600; letter-spacing: -0.015em; color: var(--color-anthracite); }
+    .back__role { display: block; margin-top: 5px; font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; color: var(--color-oxide-red); }
+    .back__contact {
+      display: flex; flex-direction: column; gap: 3px;
+      font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .02em; color: var(--color-slate); line-height: 1.4;
+    }
+    .back__contact .web { color: var(--color-anthracite); }
+    .back__side {
+      width: 26mm; flex: none; background: var(--color-limebeige);
+      display: flex; flex-direction: column; align-items: center; justify-content: space-between;
+      padding: 8mm 0;
+    }
+    .back__side svg { display: block; }
+    .qr { width: 22mm; height: 22mm; display: block; }
+
+    @media print {
+      body { background: #fff; padding: 0; gap: 0; display: block; }
+      .hint, .side__label { display: none; }
+      .card { box-shadow: none; page-break-after: always; }
+      @page { size: 85mm 55mm; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <p class="hint">Druckvorschau 85 × 55 mm. Für die Druckerei ggf. 3 mm Beschnitt (Bleed) ergänzen und die Schrift der Wortmarke in Pfade wandeln. QR enthält die vCard direkt (marco@titze.consulting, +49 151 11281477).</p>
+
+  <div class="side">
+    <div class="card card--front">
+      <svg width="50" height="50" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+        <circle cx="31" cy="31" r="29" stroke="#FBFAF7" stroke-width="4"></circle>
+        <circle cx="31" cy="31" r="18" stroke="#D8483F" stroke-width="7"></circle>
+        <path d="M31 7A24 24 0 0 1 55 31" stroke="#5E9B77" stroke-width="5" stroke-linecap="butt"></path>
+      </svg>
+      <div>
+        <span class="front__word"><span class="name">Titze</span><span class="dot">.</span><span class="rest">Consulting</span></span>
+        <span class="claim">RETHINKING TRENCHLESS REHABILITATION</span>
+      </div>
+    </div>
+    <span class="side__label">VORDERSEITE</span>
+  </div>
+
+  <div class="side">
+    <div class="card card--back">
+      <div class="back__main">
+        <div>
+          <span class="back__name">Marco Titze</span>
+          <span class="back__role">SENIOR CONSULTANT</span>
+        </div>
+        <div class="back__contact">
+          <span>+49 151 11281477</span>
+          <span>marco@titze.consulting</span>
+          <span class="web">titze.consulting</span>
+        </div>
+      </div>
+      <div class="back__side">
+        <svg width="30" height="30" viewBox="0 0 62 62" fill="none" aria-hidden="true">
+          <circle cx="31" cy="31" r="29" stroke="#14181A" stroke-width="4"></circle>
+          <circle cx="31" cy="31" r="18" stroke="#A8261F" stroke-width="7"></circle>
+          <path d="M31 7A24 24 0 0 1 55 31" stroke="#2F6B4F" stroke-width="5" stroke-linecap="butt"></path>
+        </svg>
+        <img class="qr" src="qr-vcard.svg" alt="QR-Code mit Kontaktdaten (vCard)">
+      </div>
+    </div>
+    <span class="side__label">RÜCKSEITE</span>
+  </div>
+</body>
+</html>

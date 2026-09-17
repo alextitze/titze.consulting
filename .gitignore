@@ -1,0 +1,18 @@
+# Design-Handover (Quellmaterial von Claude Design) — NICHT veröffentlichen
+design_handoff_titze_consulting_web/
+
+# Interne Planung / Design-Spec — nicht Teil der öffentlichen Site
+docs/superpowers/
+
+# OS / Editor
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Tooling
+node_modules/
+*.venv/
+qrvenv/
+__pycache__/

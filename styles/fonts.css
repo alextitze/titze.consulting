@@ -1,0 +1,27 @@
+/* Selbst gehostete Schriften — kein Google-Fonts-CDN.
+   Grund: keine Übertragung der Besucher-IP an Dritte → cookie-/bannerfrei.
+   Lizenzen: assets/fonts/OFL-Archivo.txt, assets/fonts/OFL-IBMPlexMono.txt (SIL OFL 1.1) */
+
+/* Archivo ist ein Variable Font (wght 100–900) — eine Datei deckt alle Gewichte. */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../assets/fonts/archivo.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/ibm-plex-mono-400.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/ibm-plex-mono-500.woff2') format('woff2');
+}

@@ -1,0 +1,48 @@
+/* Titze.Consulting — Design Tokens (Single Source of Truth)
+   Farben, Typografie und Abstände sind abgenommen (siehe brand/BRAND.md).
+   Diese Datei ist die verbindliche Quelle für Website, Visitenkarte und Präsentationen. */
+
+:root {
+  /* Farben */
+  --color-anthracite:      #14181A; /* Text auf hell, Vollflächen (Hero, Footer) */
+  --color-oxide-red:       #A8261F; /* Leitfarbe: Punkt, Primärbutton, Labels, Links */
+  --color-oxide-red-light: #D8483F; /* Rot auf dunklem Grund */
+  --color-moss:            #2F6B4F; /* Akzent, sparsam — Linie/Nachhaltigkeit */
+  --color-moss-light:      #5E9B77; /* Grün auf dunklem Grund */
+  --color-steel:           #6E7378; /* Sekundärtext, inaktive Zustände */
+  --color-slate:           #4A5055; /* Fließtext */
+  --color-fog:             #C8CBCC; /* Fließtext auf dunklem Grund */
+  --color-paper:           #FBFAF7; /* Grundfläche, Text auf dunkel */
+  --color-limebeige:       #E9E6DF; /* Sekundärfläche (Person/Kontakt) */
+  --color-edge:            #EAE5DB; /* Innenlinien auf Papier */
+  --color-edge-strong:     #D8D3C8; /* Außenrahmen, Trenner */
+  --color-footer-text:     #9BA0A4; /* Footer-Text auf Anthrazit */
+
+  /* Typografie */
+  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', 'Menlo', monospace;
+
+  /* Schriftgrade (Archivo) */
+  --fs-display: 52px;
+  --fs-h2:      28px;
+  --fs-lead:    20px;
+  --fs-title:   19px;
+  --fs-hero-lede: 17px;
+  --fs-body:    16px;
+  --fs-small:   14px;
+  /* Schriftgrade (IBM Plex Mono) */
+  --fs-mono:    12px;
+  --fs-mono-btn: 11px;
+  --fs-label:   10.5px;
+
+  /* Abstände */
+  --space-5: 5px;   --space-7: 7px;   --space-10: 10px; --space-12: 12px;
+  --space-14: 14px; --space-18: 18px; --space-20: 20px; --space-22: 22px;
+  --space-24: 24px; --space-26: 26px; --space-28: 28px; --space-32: 32px;
+  --space-36: 36px; --space-44: 44px; --space-48: 48px; --space-72: 72px;
+
+  /* Layout */
+  --content-max: 1000px;
+  --prose-max: 640px;
+  --band-pad-x: var(--space-36);
+}
